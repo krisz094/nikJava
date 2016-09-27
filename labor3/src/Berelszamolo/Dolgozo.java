@@ -9,7 +9,7 @@ package Berelszamolo;
  *
  * @author hallgato
  */
-public class Dolgozo {
+public class Dolgozo implements IKirughato {
     // var
     public String név;
     public String[] előzőMunkahelyei;
@@ -24,5 +24,10 @@ public class Dolgozo {
     public int getKifizetendo() {
         return fizetés/2;
     } 
+
+    @Override
+    public int vegKielegites() {
+        return fizetés*3;
+    }
 }
 

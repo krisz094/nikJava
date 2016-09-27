@@ -46,7 +46,24 @@ public class JavaApplication2 {
                 }
                 
             } else if (lenyomott == '2') {
-                //TODO átlagnál nagyobb kifizetendő
+                int tempSum = 0;
+                for (int i = 0; i< dolgozoVector.size(); i++){
+                    tempSum += dolgozoVector.get(i).getKifizetendo();
+                }
+                try {
+                    int mean = tempSum / dolgozoVector.size();
+                    for (int i = 0; i< dolgozoVector.size(); i++){
+                    if (dolgozoVector.get(i).getKifizetendo() > mean) {
+                        System.out.println((i+1) + "." +
+                                "\nnév: " + dolgozoVector.get(i).név+
+                                "\nfizetendő: " + dolgozoVector.get(i).getKifizetendo());
+                    }
+                    }
+                }catch (java.lang.ArithmeticException e) {
+                    System.out.println("Nincs ember felvéve.");
+                }
+                
+                
             } else if (lenyomott == '3') {
                 System.out.println("melyikeket töröljük?");
                 String melyiket = reader.next();
