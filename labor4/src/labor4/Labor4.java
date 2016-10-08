@@ -34,31 +34,31 @@ public class Labor4 {
 
             BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
             String readChar = " ";
-            String toSend;
+            String toSend = "";
             while (readChar.charAt(0) != 'q') {
                 System.out.println("1: add new words\n2: translate word\n3: print all known words\nq: exit");
                 readChar = br.readLine();
-                switch(readChar.charAt(0)) {
+                if (readChar.charAt(0) != 'q') {
+                    switch(readChar.charAt(0)) {
                     case '1': 
                         toSend = "n";
                         System.out.println("English word: ");
                         toSend += br.readLine();
                         System.out.println("Hungarian word: ");
                         toSend += "$" + br.readLine();
-                        openSocketAndGetAnswer(toSend);
                         break;
                     case '2':
                         System.out.println("Which word? ");
                         toSend = "t" + br.readLine();
-                        openSocketAndGetAnswer(toSend);
                         break;
                     case '3':
                         toSend = "p";
-                        openSocketAndGetAnswer(toSend);
-                        break;
-                    case 'q':
-                        break;
+                        break;      
+                    }
+                    openSocketAndGetAnswer(toSend);
                 }
+                
+                
             }
         } catch (UnknownHostException e) {
             System.out.println(e.getMessage());
